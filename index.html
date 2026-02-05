@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>reLEAF Shop</title>
+    <title>reLEAF Co.</title>
 
     <!-- Bootstrap 5.3 -->
     <link
@@ -43,7 +43,6 @@
         inset: 0;
         z-index: -3;
 
-        /* Halftone dots + subtle gradient */
         background:
           radial-gradient(circle at 10px 10px, rgba(255,122,24,.18) 2px, transparent 2.2px),
           radial-gradient(circle at 18px 18px, rgba(215,179,140,.10) 2px, transparent 2.2px),
@@ -65,9 +64,7 @@
         opacity: .55;
 
         background:
-          /* warm glow at horizon */
           radial-gradient(900px 240px at 50% 100%, rgba(255,122,24,.25), transparent 60%),
-          /* skyline svg */
           url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 600'>\
 <defs>\
@@ -92,7 +89,6 @@
         background-position: bottom center;
       }
 
-      /* Navbar */
       .navbar{
         background: rgba(11,11,11,.78);
         backdrop-filter: blur(10px);
@@ -103,7 +99,6 @@
         letter-spacing: 1px;
         font-size: 1.6rem;
       }
-
       .brand-dot{
         width: 10px; height: 10px; border-radius: 50%;
         background: var(--orange);
@@ -111,15 +106,12 @@
         box-shadow: 0 0 18px rgba(255,122,24,.55);
       }
 
-      /* Hero */
       .hero{
-        min-height: 70vh;
+        min-height: 68vh;
         position: relative;
         border-bottom: 1px solid rgba(255, 122, 24, 0.15);
-
-        /* Comic-ish: halftone overlay + city photo beneath (still works if you swap image) */
         background:
-          linear-gradient(180deg, rgba(0,0,0,.72), rgba(0,0,0,.70)),
+          linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.70)),
           radial-gradient(circle at 10px 10px, rgba(255,122,24,.18) 2px, transparent 2.2px),
           url("https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=2400&q=70")
           center/cover no-repeat;
@@ -132,64 +124,25 @@
         border-radius: 1.25rem;
         box-shadow: 0 14px 40px rgba(0,0,0,.45);
       }
-
       .badge-theme{
         background: rgba(255, 122, 24, 0.15);
         border: 2px solid rgba(255, 122, 24, 0.25);
         color: #ffd2b1;
         font-weight: 700;
       }
-
       .hero h1{
         font-family: "Bangers", cursive;
         letter-spacing: 1px;
         text-shadow: 0 4px 0 rgba(0,0,0,.55);
       }
 
-      /* Sections */
-      .section{
-        padding: 3.25rem 0;
-      }
+      .section{ padding: 3.25rem 0; }
 
-      /* Comic card look */
       .card-option{
         background: var(--card);
         border: 2px solid var(--border);
         border-radius: 1rem;
-        transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
-        height: 100%;
         box-shadow: 0 10px 0 rgba(0,0,0,.35);
-      }
-      .card-option:hover{
-        transform: translateY(-2px);
-        border-color: rgba(255, 122, 24, 0.55);
-        box-shadow: 0 12px 0 rgba(0,0,0,.35);
-      }
-
-      /* Product image placeholder styling */
-      .product-img{
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        border-radius: .85rem;
-        border: 2px solid rgba(255,122,24,.22);
-        box-shadow: inset 0 0 0 2px rgba(0,0,0,.35);
-      }
-      .img-frame{
-        position: relative;
-        border-radius: .95rem;
-        overflow: hidden;
-      }
-      .img-frame::after{
-        content:"";
-        position:absolute;
-        inset:0;
-        background:
-          radial-gradient(circle at 10px 10px, rgba(0,0,0,.18) 2px, transparent 2.2px);
-        background-size: 18px 18px;
-        mix-blend-mode: multiply;
-        opacity:.35;
-        pointer-events:none;
       }
 
       .form-control, .form-select{
@@ -211,27 +164,8 @@
         box-shadow: 0 8px 0 rgba(0,0,0,.35);
         border-radius: .9rem;
       }
-      .btn-orange:hover{
-        transform: translateY(-1px);
-        filter: brightness(0.96);
-      }
-      .btn-orange:active{
-        transform: translateY(6px);
-        box-shadow: 0 2px 0 rgba(0,0,0,.35);
-      }
-
-      .btn-outline-tan{
-        border: 2px solid rgba(215, 179, 140, 0.7);
-        color: rgba(215, 179, 140, 0.98);
-        font-weight: 900;
-        border-radius: .9rem;
-        box-shadow: 0 8px 0 rgba(0,0,0,.25);
-      }
-      .btn-outline-tan:hover{
-        background: rgba(215, 179, 140, 0.12);
-        border-color: rgba(215, 179, 140, 0.95);
-        color: #fff;
-      }
+      .btn-orange:hover{ transform: translateY(-1px); filter: brightness(0.96); }
+      .btn-orange:active{ transform: translateY(6px); box-shadow: 0 2px 0 rgba(0,0,0,.35); }
 
       footer{
         border-top: 1px solid rgba(255, 122, 24, 0.15);
@@ -240,7 +174,7 @@
       }
 
       @media (max-width: 576px){
-        .hero{ min-height: 78vh; }
+        .hero{ min-height: 75vh; }
         .navbar-brand{ font-size: 1.35rem; }
       }
     </style>
@@ -251,8 +185,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
       <div class="container">
         <a class="navbar-brand fw-semibold" href="#">
-          <span class="brand-dot"></span>
-          re<span style="color: var(--orange)">LEAF</span> SHOP
+          re<span style="color: var(--orange)">LEAF</span> Co.
         </a>
         <button
           class="navbar-toggler"
@@ -281,20 +214,41 @@
         <div class="row align-items-center gy-4">
           <div class="col-12 col-lg-7">
             <div class="hero-card p-4 p-md-5">
-              <span class="badge badge-theme rounded-pill px-3 py-2 mb-3">We All Need Some reLEAF!</span>
+              <span class="badge badge-theme rounded-pill px-3 py-2 mb-3">Need some reLEAF</span>
               <h1 class="display-5 fw-bold mb-3">
-                YOU NEED SOME reLEAF?!<br class="d-none d-md-block" />
-               Browse Our Products Now.
+                reLEAF Co.<br class="d-none d-md-block" />
+                
               </h1>
               <p class="lead mb-4 text-white-50">
-                Choose Cigarettes and/or ReLEAF, then submit your order details.
+                Choose items from the list. Order summary updates automatically. Submit sends to your email.
               </p>
               <div class="d-flex flex-wrap gap-2">
                 <a class="btn btn-orange btn-lg" href="#products">Select Products</a>
-                <a class="btn btn-outline-tan btn-lg" href="#checkout">Our Menu</a>
+                <a class="btn btn-outline-light btn-lg" href="#checkout"
+                   style="border-width:2px; border-radius:.9rem; box-shadow:0 8px 0 rgba(0,0,0,.25); font-weight:900;">
+                  Go to Menu
+                </a>
               </div>
             </div>
           </div>
+
+          <div class="col-12 col-lg-5">
+            <div class="p-4 rounded-4"
+                 style="background: rgba(0,0,0,.25); border: 2px solid rgba(255,122,24,.18); box-shadow: 0 10px 0 rgba(0,0,0,.25);">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="fw-bold" style="font-family: Bangers, cursive; letter-spacing: 1px; font-size: 1.25rem;">
+                  LIST CATEGORIES
+                </div>
+                <div class="small text-white-50">Need Credit? We can talk?! Serious Business!</div>
+              </div>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2">🚬 Cigarettes ($1 each)</li>
+                <li class="mb-2">🍿 Food / Snack ($1 each)</li>
+                <li class="mb-2">🟫 Zabba Grabba ($5)</li>
+                <li class="mb-2">🧥 Thrift (Style)</li>
+                <li>🌿 ReLEAF</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -305,8 +259,9 @@
       <div class="container">
         <div class="row mb-4 align-items-end">
           <div class="col-12 col-md-8">
-            <h2 class="fw-bold mb-2" style="font-family: Bangers, cursive; letter-spacing: 1px; font-size: 2.25rem;">
-              SELECT YOUR PRODUCTS
+            <h2 class="fw-bold mb-2"
+                style="font-family: Bangers, cursive; letter-spacing: 1px; font-size: 2.25rem;">
+              PRODUCT LIST
             </h2>
             <p class="text-white-50 mb-0">
               Choose quantities/amounts below — the summary updates automatically.
@@ -314,31 +269,50 @@
           </div>
         </div>
 
-        <form id="orderForm" action="https://formsubmit.co/odot.rva@proton.me" method="POST">
-
-          <!-- Left: Product options -->
+        <!-- FormSubmit Option A: Replace YOUR_EMAIL_HERE -->
+        <form
+          id="orderForm"
+          class="row g-4"
+          action="https://formsubmit.co/almightyodot@gmail.com"
+          method="POST"
+        >
+          <!-- LEFT: LIST -->
           <div class="col-12 col-lg-8">
-            <div class="row g-3">
-              <!-- Cigarettes -->
-              <div class="col-12 col-md-6">
-                <div class="card-option p-3 h-100">
-                  <div class="img-frame mb-3">
-                    <!-- Replace src with your real product image -->
-                    <img
-                      class="product-img"
-                      src="cigs.png"
-                      alt="Cigarettes product image placeholder"
-                    />
-                  </div>
 
-                  <div class="fw-bold mb-1" style="font-family: Bangers, cursive; letter-spacing: 1px; font-size: 1.35rem;">
-                    🚬 CIGARETTES
-                  </div>
-                  <div class="small text-white-50 mb-3">$1.00 each</div>
+            <!-- Cigarettes -->
+            <div class="card-option p-3 mb-3">
+              <h4 style="font-family:Bangers;letter-spacing:1px;">🚬 CIGARETTES</h4>
+              <p class="small text-white-50 mb-2">$1.00 each</p>
+              <select class="form-select" id="cigQty">
+                <option value="0" selected>0</option>
+                <option value="1">1 ($1)</option>
+                <option value="2">2 ($2)</option>
+                <option value="3">3 ($3)</option>
+                <option value="4">4 ($4)</option>
+                <option value="5">5 ($5)</option>
+              </select>
+            </div>
 
-                  <label class="form-label small text-white-50">Quantity</label>
-                  <select class="form-select" id="cigQty" aria-label="Cigarettes quantity">
-                    <option value="0" selected>Select quantity</option>
+            <!-- Food / Snack -->
+            <div class="card-option p-3 mb-3">
+              <h4 style="font-family:Bangers;letter-spacing:1px;">🍿 FOOD / SNACK</h4>
+              <p class="small text-white-50 mb-2">$1.00 each</p>
+              <div class="row g-2">
+                <div class="col-12 col-md-6">
+                  <label class="small text-white-50">Snack</label>
+                  <select class="form-select" id="snackQty">
+                    <option value="0" selected>0</option>
+                    <option value="1">1 ($1)</option>
+                    <option value="2">2 ($2)</option>
+                    <option value="3">3 ($3)</option>
+                    <option value="4">4 ($4)</option>
+                    <option value="5">5 ($5)</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="small text-white-50">Soda</label>
+                  <select class="form-select" id="sodaQty">
+                    <option value="0" selected>0</option>
                     <option value="1">1 ($1)</option>
                     <option value="2">2 ($2)</option>
                     <option value="3">3 ($3)</option>
@@ -347,99 +321,49 @@
                   </select>
                 </div>
               </div>
-
-              <!-- ReLEAF -->
-              <div class="col-12 col-md-6">
-                <div class="card-option p-3 h-100">
-                  <div class="img-frame mb-3">
-                    <!-- Replace src with your real product image -->
-                    <img
-                      class="product-img"
-                      src="canpot.png"
-                      alt="ReLEAF product image placeholder"
-                    />
-                  </div>
-
-                  <div class="fw-bold mb-1" style="font-family: Bangers, cursive; letter-spacing: 1px; font-size: 1.35rem;">
-                    🌿 ReLEAF
-                  </div>
-                  <div class="small text-white-50 mb-3">Select weight</div>
-
-                  <label class="form-label small text-white-50">Amount</label>
-                  <select class="form-select" id="releafQty" aria-label="ReLEAF amount">
-                    <option value="" selected>Select amount</option>
-                    <option value="5">0.5g – $5</option>
-                    <option value="10">1g – $10</option>
-                    <option value="30">3.5g – $30</option>
-                    <option value="30">7g – $50</option>
-                    <option value="40">14g – $40</option>
-                    <option value="160">28g – $160</option>
-                  </select>
-                </div>
-              </div>
-              
-
-              <div class="col-12 col-md-6">
-                <div class="card-option p-3 h-100">
-                  <div class="img-frame mb-3">
-                    <!-- Replace src with your real product image -->
-                    <img
-                      class="product-img"
-                      src="debbies.png"
-                      alt="ReLEAF product image placeholder"
-                    />
-                  </div>
-
-                  <div class="fw-bold mb-1" style="font-family: Bangers, cursive; letter-spacing: 1px; font-size: 1.35rem;">
-                    Food / Snack
-                  </div>
-                  <div class="small text-white-50 mb-3">Select weight</div>
-
-                  <label class="form-label small text-white-50">Amount</label>
-                  <select class="form-select" id="releafQty" aria-label="ReLEAF amount">
-                    <option value="" selected>Select amount</option>
-                    <option value="1">Snack – $1</option>
-                    <option value="1">Soda – $1</option>
-                    <option value="1">Combo: Snack/Soda/reLEAF – $8</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-12 col-md-6">
-                <div class="card-option p-3 h-100"> 
-                  <div class="img-frame mb-3">
-                    <!-- Replace src with your real product image -->
-                    <img
-                      class="product-img"
-                      src="thrift.png"
-                      alt="ReLEAF product image placeholder"
-                    />
-                  </div>
-
-                  <div class="fw-bold mb-1" style="font-family: Bangers, cursive; letter-spacing: 1px; font-size: 1.35rem;">
-                    Thrift
-                  </div>
-                  <div class="small text-white-50 mb-3">Select item</div>
-
-                  <label class="form-label small text-white-50">Amount</label>
-                  <select class="form-select" id="releafQty" aria-label="ReLEAF amount">
-                    <option value="" selected>Select amount</option>
-                    <option value="1">Jackets/Coats – $15</option>
-                    <option value="1">Hoodies – $10</option>
-                    <option value="1">Tees – $10</option>
-                    <option value="1">Other – $???</option>
-                  </select>
-                </div>
-              </div>
-              
-
-              
             </div>
+
+            <!-- Zabba Grabba -->
+            <div class="card-option p-3 mb-3">
+              <h4 style="font-family:Bangers;letter-spacing:1px;">🟫 ZABBA GRABBA</h4>
+              <p class="small text-white-50 mb-2">$5.00 (1)</p>
+              <select class="form-select" id="zabbaQty">
+                <option value="0" selected>0</option>
+                <option value="1">1 ($5)</option>
+              </select>
+            </div>
+
+            <!-- Thrift -->
+            <div class="card-option p-3 mb-3">
+              <h4 style="font-family:Bangers;letter-spacing:1px;">🧥 THRIFT</h4>
+              <p class="small text-white-50 mb-2">No price — we’ll confirm in notes</p>
+              <select class="form-select" id="thriftQty">
+                <option value="0" selected>Not interested</option>
+                <option value="1">Interested</option>
+              </select>
+            </div>
+
+            <!-- ReLEAF (optional add-on) -->
+            <div class="card-option p-3 mb-3">
+              <h4 style="font-family:Bangers;letter-spacing:1px;">🌿 ReLEAF (OPTIONAL)</h4>
+              <p class="small text-white-50 mb-2">Select weight</p>
+              <select class="form-select" id="releafQty">
+                <option value="" selected>Select amount</option>
+                <option value="5">0.5g – $5</option>
+                <option value="10">1g – $10</option>
+                <option value="30">3.5g – $30</option>
+                <option value="40">14g – $40</option>
+                <option value="160">28g – $160</option>
+              </select>
+            </div>
+
           </div>
 
-          <!-- Right: Summary + customer details -->
+          <!-- RIGHT: CHECKOUT + SUMMARY -->
           <div id="checkout" class="col-12 col-lg-4">
-            <div class="p-4 rounded-4" style="background: rgba(0,0,0,.25); border: 2px solid rgba(255,122,24,.18); box-shadow: 0 10px 0 rgba(0,0,0,.25);">
+            <div class="p-4 rounded-4"
+                 style="background: rgba(0,0,0,.25); border: 2px solid rgba(255,122,24,.18); box-shadow: 0 10px 0 rgba(0,0,0,.25);">
+
               <div class="d-flex align-items-center justify-content-between mb-2">
                 <h3 class="h5 fw-bold mb-0" style="font-family: Bangers, cursive; letter-spacing: 1px;">
                   ORDER SUMMARY
@@ -485,24 +409,18 @@
                 <textarea class="form-control" name="notes" rows="3" placeholder="Anything we should know?"></textarea>
               </div>
 
-              <input type="hidden" name="items" id="itemsField" placeholder="Room No, Things like that." />
-
               <!-- FormSubmit configuration -->
-                <!-- Hidden config fields -->
-            <input type="hidden" name="_subject" value="🗽 reLEAF Store Order" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_autoresponse" value="Thanks for your order!" />
+              <input type="hidden" name="_subject" value="🗽 reLEAF Co." />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_autoresponse" value="Thanks for your order! We'll be in touch shortly." />
 
-            <input type="hidden" name="items" id="itemsField" />
+              <!-- Packed items for email -->
+              <input type="hidden" name="items" id="itemsField" />
 
-            <button type="submit" class="btn btn-orange w-100 btn-lg">
-            SUBMIT ORDER
-            </button>
+              <button type="submit" class="btn btn-orange w-100 btn-lg">SUBMIT ORDER</button>
 
-              <div class="small text-white-50 mt-2">
-                Need Credit?! Let's talk! I'm serious bout my bread! Hehehehe... * Evil Laugh
-              </div>
+              
             </div>
           </div>
         </form>
@@ -512,7 +430,7 @@
     <footer>
       <div class="container">
         <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
-          <div class="small">© <span id="year"></span> reLEAF Store</div>
+          <div class="small">© <span id="year"></span> reLEAF Co.</div>
           
         </div>
       </div>
@@ -521,8 +439,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+      // Inputs
       const cigQty = document.getElementById("cigQty");
+      const snackQty = document.getElementById("snackQty");
+      const sodaQty = document.getElementById("sodaQty");
+      const zabbaQty = document.getElementById("zabbaQty");
+      const thriftQty = document.getElementById("thriftQty");
       const releafQty = document.getElementById("releafQty");
+
+      // Summary elements
       const summaryList = document.getElementById("summaryList");
       const totalEl = document.getElementById("total");
       const itemCountEl = document.getElementById("itemCount");
@@ -541,30 +466,55 @@
         let items = [];
         let count = 0;
 
-        // Cigarettes: $1 each, qty 1-5
+        // Cigarettes: $1 each
         const cigCount = parseInt(cigQty.value || "0", 10);
         if (cigCount > 0){
-          const cigTotal = cigCount * 1.0;
-          items.push({
-            label: `Cigarettes x${cigCount}`,
-            detail: `${cigCount} × ${money(1)} = ${money(cigTotal)}`,
-            line: cigTotal
-          });
-          total += cigTotal;
+          const line = cigCount * 1.0;
+          items.push({ label: `Cigarettes x${cigCount}`, detail: `${cigCount} × ${money(1)} = ${money(line)}`, line });
+          total += line;
           count += cigCount;
+        }
+
+        // Snack: $1 each
+        const snackCount = parseInt(snackQty.value || "0", 10);
+        if (snackCount > 0){
+          const line = snackCount * 1.0;
+          items.push({ label: `Snack x${snackCount}`, detail: `${snackCount} × ${money(1)} = ${money(line)}`, line });
+          total += line;
+          count += snackCount;
+        }
+
+        // Soda: $1 each
+        const sodaCount = parseInt(sodaQty.value || "0", 10);
+        if (sodaCount > 0){
+          const line = sodaCount * 1.0;
+          items.push({ label: `Soda x${sodaCount}`, detail: `${sodaCount} × ${money(1)} = ${money(line)}`, line });
+          total += line;
+          count += sodaCount;
+        }
+
+        // Zabba Grabba: $5 fixed
+        const zabbaCount = parseInt(zabbaQty.value || "0", 10);
+        if (zabbaCount > 0){
+          const line = 5.0;
+          items.push({ label: `Zabba Grabba x1`, detail: `1 × ${money(5)} = ${money(line)}`, line });
+          total += line;
+          count += 1;
+        }
+
+        // Thrift: no price (interest)
+        if (thriftQty.value === "1"){
+          items.push({ label: "Thrift", detail: "Interested (see notes)", line: 0 });
+          count += 1;
         }
 
         // ReLEAF: preset amounts/prices
         if (releafQty.value){
           const price = parseFloat(releafQty.value);
-          const label = releafQty.options[releafQty.selectedIndex].text; // e.g., "0.5g – $5"
-          items.push({
-            label: "ReLEAF",
-            detail: label,
-            line: price
-          });
+          const label = releafQty.options[releafQty.selectedIndex].text;
+          items.push({ label: "ReLEAF", detail: label, line: price });
           total += price;
-          count += 1; // count as 1 line-item selection
+          count += 1;
         }
 
         // Render summary
@@ -585,25 +535,29 @@
         totalEl.textContent = money(total);
         itemCountEl.textContent = `${count} item${count === 1 ? "" : "s"}`;
 
-        // For form submission
+        // Pack items for email
         const packed = [];
-        if (cigCount > 0) packed.push(`Cigarettes x${cigCount} ($${(cigCount * 1).toFixed(2)})`);
+        if (cigCount > 0) packed.push(`Cigarettes x${cigCount} ($${(cigCount*1).toFixed(2)})`);
+        if (snackCount > 0) packed.push(`Snack x${snackCount} ($${(snackCount*1).toFixed(2)})`);
+        if (sodaCount > 0) packed.push(`Soda x${sodaCount} ($${(sodaCount*1).toFixed(2)})`);
+        if (zabbaCount > 0) packed.push(`Zabba Grabba x1 ($5.00)`);
+        if (thriftQty.value === "1") packed.push(`Thrift: Interested`);
         if (releafQty.value) packed.push(`ReLEAF: ${releafQty.options[releafQty.selectedIndex].text}`);
+
         itemsField.value = packed.join(", ");
       }
 
-      cigQty.addEventListener("change", updateSummary);
-      releafQty.addEventListener("change", updateSummary);
+      // Update summary on changes
+      [cigQty, snackQty, sodaQty, zabbaQty, thriftQty, releafQty].forEach(el => {
+        el.addEventListener("change", updateSummary);
+      });
 
+      // Option A submit: allow submit unless no products selected
       form.addEventListener("submit", (e) => {
-        // make sure summary is up to date
         updateSummary();
-
-        // simple validation before submit
-        if (!itemsField.value) {
-            e.preventDefault();
-            alert("Please select at least one product.");
-            return;
+        if (!itemsField.value){
+          e.preventDefault();
+          alert("Please select at least one product.");
         }
       });
 
@@ -611,3 +565,4 @@
     </script>
   </body>
 </html>
+
