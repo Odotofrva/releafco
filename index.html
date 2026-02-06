@@ -210,7 +210,7 @@
         pointer-events:none;
       }
 
-      /* ===== PODCAST SECTION ===== */
+      /* ===== PODCAST/VIDEO SECTION ===== */
       .video-frame{
         position: relative;
         border-radius: 1rem;
@@ -232,6 +232,35 @@
       .video-title{
         font-family: "Bangers", cursive;
         letter-spacing: 1px;
+      }
+
+      /* ===== 1UP click-to-play cover ===== */
+      .video-cover{
+        position:absolute;
+        inset:0;
+        z-index:2;
+        display:grid;
+        place-items:center;
+        background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.78));
+        cursor:pointer;
+      }
+      .cover-inner{
+        text-align:center;
+        max-width: 520px;
+        padding: 1.25rem;
+      }
+      .play-btn{
+        width: 86px;
+        height: 86px;
+        border-radius: 999px;
+        display:grid;
+        place-items:center;
+        margin: 0 auto 1rem auto;
+        background: rgba(255,122,24,.95);
+        border: 3px solid rgba(0,0,0,.4);
+        box-shadow: 0 12px 0 rgba(0,0,0,.35);
+        color:#111;
+        font-weight:900;
       }
 
       .form-control, .form-select{
@@ -277,7 +306,6 @@
       <div class="container">
         <div class="ticker-wrap">
           <div class="ticker" id="ticker">
-            <!-- JS will fill this; this is a fallback -->
             <span class="item"><span class="pill">BTC</span> <span>$—</span></span>
             <span class="item"><span class="pill">ETH</span> <span>$—</span></span>
             <span class="item"><span class="pill">SPY</span> <span>$—</span></span>
@@ -310,6 +338,7 @@
         <div class="collapse navbar-collapse" id="navMenu">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="#podcast">Podcast</a></li>
+            <li class="nav-item"><a class="nav-link" href="#oneup">1UP</a></li>
             <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
             <li class="nav-item"><a class="nav-link" href="#checkout">Checkout</a></li>
           </ul>
@@ -332,9 +361,9 @@
               </p>
               <div class="d-flex flex-wrap gap-2">
                 <a class="btn btn-orange btn-lg" href="#products">Select Products</a>
-                <a class="btn btn-outline-light btn-lg" href="#podcast"
+                <a class="btn btn-outline-light btn-lg" href="#oneup"
                    style="border-width:2px; border-radius:.9rem; box-shadow:0 8px 0 rgba(0,0,0,.25); font-weight:900;">
-                  Watch Podcast
+                  Watch 1UP
                 </a>
               </div>
             </div>
@@ -368,16 +397,15 @@
         <div class="row g-4 align-items-center">
           <div class="col-12 col-lg-5">
             <div class="card-option p-4">
-              <h2 class="video-title mb-2">🎥 reLEAF Podcast </h2>
+              <h2 class="video-title mb-2">🎥 reLEAF Podcast</h2>
               <p class="text-white-50 mb-3">
-                Watch the latest episode / live stream right here (Coming Soon). For now, enjoy some MAX B. Shouts to NYC!!!! 
+                Watch the latest episode / live stream right here (Coming Soon). For now, enjoy some MAX B. Shouts to NYC!!!!
               </p>
             </div>
           </div>
 
           <div class="col-12 col-lg-7">
             <div class="video-frame ratio ratio-16x9">
-              <!-- ✅ Replace this with your real YouTube embed -->
               <iframe
                 src="https://www.youtube.com/embed/DIoLY7B6yZk?si=oP5g1-1IkUlYUHHa"
                 title="reLEAF Podcast"
@@ -389,6 +417,70 @@
         </div>
       </div>
     </section>
+
+    <!-- ✅✅✅ 1UP STREAM SECTION (CLICK -> 21+ MODAL -> PLAY) ✅✅✅ -->
+    <section id="oneup" class="section pt-0">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-12 col-lg-5">
+            <div class="card-option p-4">
+              <h2 class="video-title mb-2">🕹️ 1UP</h2>
+              <p class="text-white-50 mb-2">
+                Click the video to play. You must confirm you are <strong>21+</strong> to enter.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-7">
+            <div class="video-frame ratio ratio-16x9" id="oneupFrame">
+              <!-- Cover overlay (click triggers age gate modal) -->
+              <div
+                id="oneupCover"
+                class="video-cover"
+                role="button"
+                tabindex="0"
+                aria-label="Play 1UP Stream"
+                data-embed="https://www.youtube.com/embed/YOUR_STREAM_ID?autoplay=1"
+
+              >
+                <div class="cover-inner">
+                  <div class="play-btn">▶</div>
+                  <div class="video-title" style="font-size: 2rem;">1UP STREAM</div>
+                  <div class="text-white-50 mt-1">Tap to play (21+)</div>
+                </div>
+              </div>
+
+              <!-- Player mounts here ONLY after user clicks YES -->
+              <div id="oneupPlayerMount" class="w-100 h-100"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Age Gate Modal -->
+    <div class="modal fade" id="ageGateModal" tabindex="-1" aria-labelledby="ageGateLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background: rgba(0,0,0,.92); border: 2px solid rgba(255,122,24,.25); border-radius: 1rem;">
+          <div class="modal-header" style="border-bottom: 1px solid rgba(255,122,24,.18);">
+            <h5 class="modal-title video-title" id="ageGateLabel">21+ Required</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-1">Are you <strong>21 years or older</strong>?</p>
+            <p class="text-white-50 small mb-0">You must confirm to view the 1UP stream.</p>
+          </div>
+          <div class="modal-footer" style="border-top: 1px solid rgba(255,122,24,.18);">
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal" style="border-width:2px; border-radius:.9rem; font-weight:900;">
+              No
+            </button>
+            <button type="button" class="btn btn-orange" id="ageYesBtn">
+              Yes, Enter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Products / Form -->
     <section id="products" class="section pt-0">
@@ -501,9 +593,6 @@
               </div>
               <h4 style="font-family:Bangers;letter-spacing:1px;">🌿 ReLEAF</h4>
               <p class="small text-white-50 mb-2">Select weight</p>
-
-              <!-- NOTE: I left your values as-is to avoid changing your pricing logic.
-                   If you want correct totals, make sure each option value matches its price. -->
               <select class="form-select" id="releafQty">
                 <option value="" selected>Select amount</option>
                 <option value="5">0.5g – $5</option>
@@ -613,13 +702,11 @@
 
       function renderTicker(items){
         const ticker = document.getElementById("ticker");
-        // duplicate list so it scrolls smoothly
         ticker.innerHTML =
           items.map(i => `<span class="item"><span class="pill">${i.symbol}</span> <span>${fmtPrice(i.price)}</span></span>`).join("")
           + items.map(i => `<span class="item"><span class="pill">${i.symbol}</span> <span>${fmtPrice(i.price)}</span></span>`).join("");
       }
 
-      // Demo "wiggle" prices so ticker feels alive (no API)
       function randomizeTicker(){
         tickerData.forEach(t => {
           const base =
@@ -627,13 +714,12 @@
             t.symbol === "ETH" ? 2200 :
             t.symbol === "SPY" ? 480 :
             t.symbol === "AAPL" ? 190 :
-            240; // TSLA
+            240;
           const wiggle = (Math.random() - 0.5) * (base * 0.01);
           t.price = base + wiggle;
         });
         renderTicker(tickerData);
       }
-
       randomizeTicker();
       setInterval(randomizeTicker, 6000);
 
@@ -749,6 +835,46 @@
       });
 
       updateSummary();
+
+      // ✅✅✅ 1UP AGE GATE LOGIC ✅✅✅
+      const ageModalEl = document.getElementById("ageGateModal");
+      const ageModal = new bootstrap.Modal(ageModalEl);
+      const oneupCover = document.getElementById("oneupCover");
+      const oneupMount = document.getElementById("oneupPlayerMount");
+      const ageYesBtn = document.getElementById("ageYesBtn");
+
+      let pendingEmbedUrl = "";
+
+      function openAgeGate(){
+        pendingEmbedUrl = oneupCover.dataset.embed || "";
+        ageModal.show();
+      }
+
+      // Click / keyboard opens modal
+      oneupCover.addEventListener("click", openAgeGate);
+      oneupCover.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          openAgeGate();
+        }
+      });
+
+      // YES = inject iframe and remove cover
+      ageYesBtn.addEventListener("click", () => {
+        if (!pendingEmbedUrl) return;
+
+        oneupMount.innerHTML = `
+          <iframe
+            src="${pendingEmbedUrl}"
+            title="1UP Stream"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        `;
+
+        oneupCover.style.display = "none";
+        ageModal.hide();
+      });
     </script>
   </body>
 </html>
