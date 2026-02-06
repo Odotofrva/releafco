@@ -42,7 +42,6 @@
         position: fixed;
         inset: 0;
         z-index: -3;
-
         background:
           radial-gradient(circle at 10px 10px, rgba(255,122,24,.18) 2px, transparent 2.2px),
           radial-gradient(circle at 18px 18px, rgba(215,179,140,.10) 2px, transparent 2.2px),
@@ -62,7 +61,6 @@
         z-index: -2;
         pointer-events: none;
         opacity: .55;
-
         background:
           radial-gradient(900px 240px at 50% 100%, rgba(255,122,24,.25), transparent 60%),
           url("data:image/svg+xml;utf8,\
@@ -94,11 +92,7 @@
         background: rgba(0,0,0,.88);
         border-bottom: 1px solid rgba(255, 122, 24, 0.18);
       }
-      .ticker-wrap{
-        overflow: hidden;
-        white-space: nowrap;
-        position: relative;
-      }
+      .ticker-wrap{ overflow: hidden; white-space: nowrap; position: relative; }
       .ticker{
         display: inline-block;
         padding-left: 100%;
@@ -106,10 +100,7 @@
         font-weight: 800;
         font-size: .95rem;
       }
-      @keyframes tickerMove{
-        0%{ transform: translateX(0); }
-        100%{ transform: translateX(-100%); }
-      }
+      @keyframes tickerMove{ 0%{ transform: translateX(0);} 100%{ transform: translateX(-100%);} }
       .ticker .item{
         display: inline-flex;
         align-items: center;
@@ -194,11 +185,7 @@
         border-radius: .85rem;
         border: 2px solid rgba(255,122,24,.22);
       }
-      .img-frame{
-        position: relative;
-        border-radius: .95rem;
-        overflow: hidden;
-      }
+      .img-frame{ position: relative; border-radius: .95rem; overflow: hidden; }
       .img-frame::after{
         content:"";
         position:absolute;
@@ -210,7 +197,7 @@
         pointer-events:none;
       }
 
-      /* ===== PODCAST/VIDEO SECTION ===== */
+      /* ===== VIDEO SECTION ===== */
       .video-frame{
         position: relative;
         border-radius: 1rem;
@@ -229,38 +216,25 @@
         opacity:.25;
         mix-blend-mode:multiply;
       }
-      .video-title{
-        font-family: "Bangers", cursive;
-        letter-spacing: 1px;
-      }
+      .video-title{ font-family: "Bangers", cursive; letter-spacing: 1px; }
 
-      /* ===== 1UP click-to-play cover ===== */
-      .video-cover{
+      /* ===== 1UP login overlay ===== */
+      .oneup-lock{
         position:absolute;
         inset:0;
         z-index:2;
         display:grid;
         place-items:center;
-        background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.78));
-        cursor:pointer;
+        background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.82));
+        padding: 1rem;
       }
-      .cover-inner{
-        text-align:center;
-        max-width: 520px;
-        padding: 1.25rem;
-      }
-      .play-btn{
-        width: 86px;
-        height: 86px;
-        border-radius: 999px;
-        display:grid;
-        place-items:center;
-        margin: 0 auto 1rem auto;
-        background: rgba(255,122,24,.95);
-        border: 3px solid rgba(0,0,0,.4);
+      .lock-card{
+        width: min(520px, 100%);
+        background: rgba(0,0,0,.55);
+        border: 2px solid rgba(255,122,24,.22);
+        border-radius: 1rem;
         box-shadow: 0 12px 0 rgba(0,0,0,.35);
-        color:#111;
-        font-weight:900;
+        padding: 1.25rem;
       }
 
       .form-control, .form-select{
@@ -323,15 +297,9 @@
           <span class="brand-dot"></span>
           re<span style="color: var(--orange)">LEAF</span>
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navMenu"
-          aria-controls="navMenu"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+          aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -363,7 +331,7 @@
                 <a class="btn btn-orange btn-lg" href="#products">Select Products</a>
                 <a class="btn btn-outline-light btn-lg" href="#oneup"
                    style="border-width:2px; border-radius:.9rem; box-shadow:0 8px 0 rgba(0,0,0,.25); font-weight:900;">
-                  Watch 1UP
+                  Enter 1UP
                 </a>
               </div>
             </div>
@@ -383,7 +351,7 @@
                 <li class="mb-2">🍿 Food / Snack ($1 each)</li>
                 <li class="mb-2">🟫 Zabba Grabba ($5)</li>
                 <li class="mb-2">🧥 Thrift (interest)</li>
-                <li>🌿 ReLEAF </li>
+                <li>🌿 ReLEAF</li>
               </ul>
             </div>
           </div>
@@ -391,14 +359,14 @@
       </div>
     </header>
 
-    <!-- ===== reLEAF PODCAST (YouTube) SECTION ===== -->
+    <!-- Podcast -->
     <section id="podcast" class="section">
       <div class="container">
         <div class="row g-4 align-items-center">
           <div class="col-12 col-lg-5">
             <div class="card-option p-4">
               <h2 class="video-title mb-2">🎥 reLEAF Podcast</h2>
-              <p class="text-white-50 mb-3">
+              <p class="text-white-50 mb-0">
                 Watch the latest episode / live stream right here (Coming Soon). For now, enjoy some MAX B. Shouts to NYC!!!!
               </p>
             </div>
@@ -418,7 +386,7 @@
       </div>
     </section>
 
-    <!-- ✅✅✅ 1UP STREAM SECTION (CLICK -> 21+ MODAL -> PLAY) ✅✅✅ -->
+    <!-- ✅ 1UP SECTION (Login + 21+ Gate) -->
     <section id="oneup" class="section pt-0">
       <div class="container">
         <div class="row g-4 align-items-center">
@@ -426,31 +394,39 @@
             <div class="card-option p-4">
               <h2 class="video-title mb-2">🕹️ 1UP</h2>
               <p class="text-white-50 mb-2">
-                Click the video to play. You must confirm you are <strong>21+</strong> to enter.
+                Private stream. Confirm <strong>21+</strong> and sign in to view.
               </p>
             </div>
           </div>
 
           <div class="col-12 col-lg-7">
             <div class="video-frame ratio ratio-16x9" id="oneupFrame">
-              <!-- Cover overlay (click triggers age gate modal) -->
-              <div
-                id="oneupCover"
-                class="video-cover"
-                role="button"
-                tabindex="0"
-                aria-label="Play 1UP Stream"
-                data-embed="https://www.youtube.com/embed/YOUR_STREAM_ID?autoplay=1"
+              <!-- Login overlay -->
+              <div class="oneup-lock" id="oneupLock" data-embed="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+                <div class="lock-card">
+                  <div class="video-title" style="font-size: 2rem;">1UP ACCESS</div>
+                  <div class="text-white-50 small mb-3">Please use username + password to continue.</div>
 
-              >
-                <div class="cover-inner">
-                  <div class="play-btn">▶</div>
-                  <div class="video-title" style="font-size: 2rem;">1UP STREAM</div>
-                  <div class="text-white-50 mt-1">Tap to play (21+)</div>
+                  <div class="row g-2">
+                    <div class="col-12">
+                      <label class="small text-white-50">Login</label>
+                      <input class="form-control" id="oneupUser" autocomplete="username" placeholder="Username" />
+                    </div>
+                    <div class="col-12">
+                      <label class="small text-white-50">Password</label>
+                      <input class="form-control" id="oneupPass" type="password" autocomplete="current-password" placeholder="Password" />
+                    </div>
+                    <div class="col-12 d-grid mt-2">
+                      <button class="btn btn-orange" id="oneupSignInBtn" type="button">SIGN IN</button>
+                    </div>
+                    <div class="col-12">
+                      <div class="small mt-2" id="oneupMsg" style="display:none;"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Player mounts here ONLY after user clicks YES -->
+              <!-- Player mounts here after YES + correct login -->
               <div id="oneupPlayerMount" class="w-100 h-100"></div>
             </div>
           </div>
@@ -468,7 +444,7 @@
           </div>
           <div class="modal-body">
             <p class="mb-1">Are you <strong>21 years or older</strong>?</p>
-            <p class="text-white-50 small mb-0">You must confirm to view the 1UP stream.</p>
+            <p class="text-white-50 small mb-0">You must confirm to view 1UP content.</p>
           </div>
           <div class="modal-footer" style="border-top: 1px solid rgba(255,122,24,.18);">
             <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal" style="border-width:2px; border-radius:.9rem; font-weight:900;">
@@ -667,7 +643,7 @@
               <button type="submit" class="btn btn-orange w-100 btn-lg">SUBMIT ORDER</button>
 
               <div class="small text-white-50 mt-2">
-                Accept Cash, Cash App, Venmo, ... even Quaters, Nickles and Dimes. :)
+                Need CREDIT?! Let's talk! Nothing over $10 if shopped prior with us!
               </div>
             </div>
           </div>
@@ -836,44 +812,97 @@
 
       updateSummary();
 
-      // ✅✅✅ 1UP AGE GATE LOGIC ✅✅✅
+      // ✅✅✅ 1UP LOGIN + 21+ GATE ✅✅✅
+      // IMPORTANT: This is NOT secure protection (front-end only).
+      // For real security, do server-side auth & only return the stream URL after login.
+
+      // Change these to whatever you want (demo)
+      const ONEUP_ALLOWED_USER = "oneup";
+      const ONEUP_ALLOWED_PASS = "releaf21";
+
+      const oneupLock = document.getElementById("oneupLock");
+      const oneupUser = document.getElementById("oneupUser");
+      const oneupPass = document.getElementById("oneupPass");
+      const oneupSignInBtn = document.getElementById("oneupSignInBtn");
+      const oneupMsg = document.getElementById("oneupMsg");
+      const oneupMount = document.getElementById("oneupPlayerMount");
+
       const ageModalEl = document.getElementById("ageGateModal");
       const ageModal = new bootstrap.Modal(ageModalEl);
-      const oneupCover = document.getElementById("oneupCover");
-      const oneupMount = document.getElementById("oneupPlayerMount");
       const ageYesBtn = document.getElementById("ageYesBtn");
 
       let pendingEmbedUrl = "";
+      let loginPassed = false;
+      let agePassed = false;
 
-      function openAgeGate(){
-        pendingEmbedUrl = oneupCover.dataset.embed || "";
-        ageModal.show();
+      function showMsg(text, ok=false){
+        oneupMsg.style.display = "block";
+        oneupMsg.className = ok ? "small mt-2 text-success" : "small mt-2 text-danger";
+        oneupMsg.textContent = text;
       }
 
-      // Click / keyboard opens modal
-      oneupCover.addEventListener("click", openAgeGate);
-      oneupCover.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " "){
-          e.preventDefault();
-          openAgeGate();
-        }
-      });
-
-      // YES = inject iframe and remove cover
-      ageYesBtn.addEventListener("click", () => {
-        if (!pendingEmbedUrl) return;
+      function mount1UPPlayer(){
+        const embed = oneupLock.dataset.embed || "";
+        if (!embed) return;
 
         oneupMount.innerHTML = `
           <iframe
-            src="${pendingEmbedUrl}"
+            src="${embed}"
             title="1UP Stream"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
         `;
+        oneupLock.style.display = "none";
+      }
 
-        oneupCover.style.display = "none";
+      function checkAndPlay(){
+        if (loginPassed && agePassed){
+          mount1UPPlayer();
+        }
+      }
+
+      function validateLogin(){
+        const u = (oneupUser.value || "").trim();
+        const p = (oneupPass.value || "").trim();
+
+        if (!u || !p){
+          showMsg("Please enter login and password.");
+          return;
+        }
+
+        if (u === ONEUP_ALLOWED_USER && p === ONEUP_ALLOWED_PASS){
+          loginPassed = true;
+          showMsg("Login approved. Now confirm 21+ to enter.", true);
+          ageModal.show();
+        } else {
+          loginPassed = false;
+          showMsg("Incorrect login or password.");
+        }
+      }
+
+      oneupSignInBtn.addEventListener("click", validateLogin);
+
+      // Enter key submits login
+      [oneupUser, oneupPass].forEach(el => {
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter"){
+            e.preventDefault();
+            validateLogin();
+          }
+        });
+      });
+
+      // Age gate YES
+      ageYesBtn.addEventListener("click", () => {
+        agePassed = true;
         ageModal.hide();
+        checkAndPlay();
+      });
+
+      // If they close modal / hit No, keep it locked
+      ageModalEl.addEventListener("hidden.bs.modal", () => {
+        // If age not passed, nothing happens; they can click sign-in again
       });
     </script>
   </body>
