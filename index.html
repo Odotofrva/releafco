@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>reLEAF Co.</title> 
+    <title>reLEAF Co.</title>
 
     <!-- Bootstrap 5.3 -->
     <link
@@ -145,6 +145,30 @@
         box-shadow: 0 10px 0 rgba(0,0,0,.35);
       }
 
+      /* Product image styling */
+      .product-img{
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: .85rem;
+        border: 2px solid rgba(255,122,24,.22);
+      }
+      .img-frame{
+        position: relative;
+        border-radius: .95rem;
+        overflow: hidden;
+      }
+      .img-frame::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        background: radial-gradient(circle at 10px 10px, rgba(0,0,0,.18) 2px, transparent 2.2px);
+        background-size: 18px 18px;
+        mix-blend-mode: multiply;
+        opacity:.35;
+        pointer-events:none;
+      }
+
       .form-control, .form-select{
         background: rgba(0,0,0,.25);
         border: 2px solid rgba(255, 122, 24, 0.22);
@@ -176,6 +200,7 @@
       @media (max-width: 576px){
         .hero{ min-height: 75vh; }
         .navbar-brand{ font-size: 1.35rem; }
+        .product-img{ height: 120px; }
       }
     </style>
   </head>
@@ -185,7 +210,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
       <div class="container">
         <a class="navbar-brand fw-semibold" href="#">
-          re<span style="color: var(--orange)">LEAF</span> Co.
+          <span class="brand-dot"></span>
+          re<span style="color: var(--orange)">LEAF</span>
         </a>
         <button
           class="navbar-toggler"
@@ -214,19 +240,18 @@
         <div class="row align-items-center gy-4">
           <div class="col-12 col-lg-7">
             <div class="hero-card p-4 p-md-5">
-              <span class="badge badge-theme rounded-pill px-3 py-2 mb-3">Need some reLEAF</span>
+              <span class="badge badge-theme rounded-pill px-3 py-2 mb-3">Mobile Friendly • Bootstrap 5</span>
               <h1 class="display-5 fw-bold mb-3">
-                reLEAF Co.<br class="d-none d-md-block" />
-                
+                reLEAF Co..<br class="d-none d-md-block" />
               </h1>
               <p class="lead mb-4 text-white-50">
-                Choose items from the list. Order summary updates automatically. Submit sends to your email.
+                Need some relief? Try shopping with reLEAF!
               </p>
               <div class="d-flex flex-wrap gap-2">
                 <a class="btn btn-orange btn-lg" href="#products">Select Products</a>
                 <a class="btn btn-outline-light btn-lg" href="#checkout"
                    style="border-width:2px; border-radius:.9rem; box-shadow:0 8px 0 rgba(0,0,0,.25); font-weight:900;">
-                  Go to Menu
+                  Go to Form
                 </a>
               </div>
             </div>
@@ -239,14 +264,14 @@
                 <div class="fw-bold" style="font-family: Bangers, cursive; letter-spacing: 1px; font-size: 1.25rem;">
                   LIST CATEGORIES
                 </div>
-                <div class="small text-white-50">Need Credit? We can talk?! Serious Business!</div>
+                <div class="small text-white-50">reLEAF</div>
               </div>
               <ul class="list-unstyled mb-0 small">
                 <li class="mb-2">🚬 Cigarettes ($1 each)</li>
                 <li class="mb-2">🍿 Food / Snack ($1 each)</li>
                 <li class="mb-2">🟫 Zabba Grabba ($5)</li>
-                <li class="mb-2">🧥 Thrift (Style)</li>
-                <li>🌿 ReLEAF</li>
+                <li class="mb-2">🧥 Thrift (interest)</li>
+                <li>🌿 ReLEAF (optional add-on)</li>
               </ul>
             </div>
           </div>
@@ -273,7 +298,7 @@
         <form
           id="orderForm"
           class="row g-4"
-          action="https://formsubmit.co/almightyodot@gmail.com"
+          action="https://formsubmit.co/odot.rva@proton.me"
           method="POST"
         >
           <!-- LEFT: LIST -->
@@ -281,6 +306,12 @@
 
             <!-- Cigarettes -->
             <div class="card-option p-3 mb-3">
+              <div class="img-frame mb-3">
+                <!-- Replace this src with your real image path/url -->
+                <img class="product-img"
+                     src="cigs.png"
+                     alt="Cigarettes image" />
+              </div>
               <h4 style="font-family:Bangers;letter-spacing:1px;">🚬 CIGARETTES</h4>
               <p class="small text-white-50 mb-2">$1.00 each</p>
               <select class="form-select" id="cigQty">
@@ -296,9 +327,16 @@
             <!-- Food / Snack -->
             <div class="card-option p-3 mb-3">
               <h4 style="font-family:Bangers;letter-spacing:1px;">🍿 FOOD / SNACK</h4>
-              <p class="small text-white-50 mb-2">$1.00 each</p>
-              <div class="row g-2">
+              <p class="small text-white-50 mb-3">$1.00 each</p>
+
+              <div class="row g-3">
                 <div class="col-12 col-md-6">
+                  <div class="img-frame mb-2">
+                    <!-- Replace this src with your real image path/url -->
+                    <img class="product-img"
+                         src="debbies.png"
+                         alt="Snack image" />
+                  </div>
                   <label class="small text-white-50">Snack</label>
                   <select class="form-select" id="snackQty">
                     <option value="0" selected>0</option>
@@ -309,7 +347,14 @@
                     <option value="5">5 ($5)</option>
                   </select>
                 </div>
+
                 <div class="col-12 col-md-6">
+                  <div class="img-frame mb-2">
+                    <!-- Replace this src with your real image path/url -->
+                    <img class="product-img"
+                         src="soda.png"
+                         alt="Soda image" />
+                  </div>
                   <label class="small text-white-50">Soda</label>
                   <select class="form-select" id="sodaQty">
                     <option value="0" selected>0</option>
@@ -325,6 +370,12 @@
 
             <!-- Zabba Grabba -->
             <div class="card-option p-3 mb-3">
+              <div class="img-frame mb-3">
+                <!-- Replace this src with your real image path/url -->
+                <img class="product-img"
+                     src="zabba2.png"
+                     alt="Zabba Grabba image" />
+              </div>
               <h4 style="font-family:Bangers;letter-spacing:1px;">🟫 ZABBA GRABBA</h4>
               <p class="small text-white-50 mb-2">$5.00 (1)</p>
               <select class="form-select" id="zabbaQty">
@@ -335,6 +386,12 @@
 
             <!-- Thrift -->
             <div class="card-option p-3 mb-3">
+              <div class="img-frame mb-3">
+                <!-- Replace this src with your real image path/url -->
+                <img class="product-img"
+                     src="thrift.png"
+                     alt="Thrift image" />
+              </div>
               <h4 style="font-family:Bangers;letter-spacing:1px;">🧥 THRIFT</h4>
               <p class="small text-white-50 mb-2">No price — we’ll confirm in notes</p>
               <select class="form-select" id="thriftQty">
@@ -345,14 +402,20 @@
 
             <!-- ReLEAF (optional add-on) -->
             <div class="card-option p-3 mb-3">
-              <h4 style="font-family:Bangers;letter-spacing:1px;">🌿 ReLEAF </h4>
+              <div class="img-frame mb-3">
+                <!-- Replace this src with your real image path/url -->
+                <img class="product-img"
+                     src="canpot.png"
+                     alt="ReLEAF image" />
+              </div>
+              <h4 style="font-family:Bangers;letter-spacing:1px;">🌿 ReLEAF</h4>
               <p class="small text-white-50 mb-2">Select weight</p>
               <select class="form-select" id="releafQty">
                 <option value="" selected>Select amount</option>
                 <option value="5">0.5g – $5</option>
                 <option value="10">1g – $10</option>
                 <option value="30">3.5g – $20</option>
-                <option value="30">7g – $50</option>
+                <option value="30">7g – 40</option>
                 <option value="40">14g – $60</option>
                 <option value="160">28g – $160</option>
               </select>
@@ -411,7 +474,7 @@
               </div>
 
               <!-- FormSubmit configuration -->
-              <input type="hidden" name="_subject" value="🗽 reLEAF Co." />
+              <input type="hidden" name="_subject" value="🗽 reLEAF Order" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_autoresponse" value="Thanks for your order! We'll be in touch shortly." />
@@ -421,7 +484,9 @@
 
               <button type="submit" class="btn btn-orange w-100 btn-lg">SUBMIT ORDER</button>
 
-              
+              <div class="small text-white-50 mt-2">
+                Sends to your email via FormSubmit. (First submit requires confirmation.)
+              </div>
             </div>
           </div>
         </form>
@@ -566,4 +631,5 @@
     </script>
   </body>
 </html>
+
 
